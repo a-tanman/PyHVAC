@@ -1,0 +1,17 @@
+MANIFEST.in
+setup.cfg
+setup.py
+PyHVAC/__init__.py
+PyHVAC/api.py
+PyHVAC/schema.sql
+PyHVAC/server.py
+PyHVAC.egg-info/PKG-INFO
+PyHVAC.egg-info/SOURCES.txt
+PyHVAC.egg-info/dependency_links.txt
+PyHVAC.egg-info/requires.txt
+PyHVAC.egg-info/top_level.txt
+PyHVAC/static/style.css
+PyHVAC/templates/hello.html
+PyHVAC/templates/layout.html
+PyHVAC/templates/login.html
+PyHVAC/templates/show_entries.html

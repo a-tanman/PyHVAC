@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Date & Time:
+        <dd><input type=text size=30 name=date_time>
+        <dt>Mode:
+        <dd><textarea name=mode_num rows=1 cols=5></textarea>
+        <dt>Mode Parameters:
+        <dd><textarea name=mode_params rows=5 cols=40></textarea>
+        <dt>Sensor Data:
+        <dd><textarea name=sensor_data rows=5 cols=40></textarea>
+        <dt>Actuator Data:
+        <dd><textarea name=actuator_data rows=5 cols=40></textarea>
+        <dd><input type=submit value=update>
+      </dl>
+    </form>
+  {% endif %}
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><h2>{{ entry.date_time }}</h2>
+    {{ entry.mode_num|safe }}
+    {{ entry.mode_params|safe }}
+    {{ entry.sensor_data|safe }}
+    {{ entry.actuator_data|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}

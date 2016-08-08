@@ -1,0 +1,3 @@
+graft PyHVAC/templates
+graft PyHVAC/static
+include PyHVAC/schema.sql

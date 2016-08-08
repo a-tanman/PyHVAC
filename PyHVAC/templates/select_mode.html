@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('select_mode') }}" method=post class=select-mode>
+		
+		<p>
+				<h2><em>Please select mode:</em></h2>
+		</p>
+		
+		<select name=mode_num>
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
+			<option value=4>4</option>
+			<option value=5>5 (Custom)</option>
+		</select>
+		
+		  <ul class=show_mode>
+	  <p><li>Selected Mode: </li>{{selected_mode}}</li></p>
+	  
+		<p>
+				<h2><em>Set the below IF mode 5 (Custom) is chosen</em></h2>
+		</p>
+		<dl>
+		<dt>Temperature:
+        <dd><input type=number min=10 max= 50 name=temperature>
+        <dt>Relative Humidity (%):
+        <dd><input type=number min=0 max= 100 name=relative_humidity>
+        <dt>Misting (Y/N):
+        <dd><input type=text size=5 name=misting>
+        <dt>Light On:
+        <dd><input type=text size=5 name=light_on>
+        <dt>Light Off:
+        <dd><input type=text size=5 name=light_off>
+        <dt>Pressure:
+        <dd><input type=number min=-1000 max=1000 name=pressure>
+        <dt>CO2 (ppm):
+        <dd><input type=number min=0 max=2000 name=co2>
+        <dt>Wind Speed (m3/h):
+        <dd><input type=number min=0 max=10000 name=wind_speed>
+        <p>
+        <dd><input type=submit value=update>
+        </p>
+		</dl>
+    </form>
+  {% endif %}
+
+	   
+<!--
+	  {% for mode in modes %}
+		<li>Mode Number: {{ mode.mode_num }}
+		<li>Temperature: {{ mode.temperature }}
+		<li>Relative Humidity (%): {{ mode.relative_humidity }}
+		<li>Misting (Y/N): {{ mode.misting }}
+		<li>Pressure: {{ mode.pressure }}
+		<li>CO2: {{ mode.co2 }}
+		<li>Wind Speed (m3/h) {{ mode.wind_speed }}
+		</li>
+		{# add ALL the mode output here #}
+-->
+		
+  {% else %}
+    <li><em>Mode not set yet!</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
